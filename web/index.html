@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ActiveSG Gym Crowd · Singapore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div>
+        <h1>ActiveSG Gym Crowd</h1>
+        <p class="tagline">Live &amp; historical occupancy · Singapore</p>
+      </div>
+    </div>
+    <div class="meta" id="meta">
+      <span class="pill" id="bucket-pill">—</span>
+      <span class="pill muted" id="count-pill">—</span>
+      <span class="pill muted" id="updated-pill">—</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel live">
+      <div class="panel-head">
+        <h2>Now</h2>
+        <div class="controls">
+          <input type="search" id="filter" placeholder="Filter gyms…" autocomplete="off" />
+          <select id="sort">
+            <option value="busy">Busiest first</option>
+            <option value="quiet">Quietest first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="gym-grid" id="gym-grid"></div>
+    </section>
+
+    <section class="panel detail">
+      <div class="panel-head">
+        <h2 id="detail-title">Select a gym</h2>
+        <div class="controls">
+          <label class="sr-only" for="date-pick">Date</label>
+          <input type="date" id="date-pick" />
+          <div class="seg" role="tablist">
+            <button type="button" class="seg-btn active" data-view="day" role="tab">Day</button>
+            <button type="button" class="seg-btn" data-view="heatmap" role="tab">Week avg</button>
+          </div>
+        </div>
+      </div>
+      <div id="chart-wrap" class="chart-wrap">
+        <p class="empty">Tap a gym on the left to see its 15-minute history.</p>
+      </div>
+      <canvas id="line-canvas" width="800" height="280" hidden></canvas>
+      <div id="heatmap" class="heatmap" hidden></div>
+      <p class="hint" id="hint"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Occupancy data from
+      <a href="https://activesg.gov.sg/gym-pool-crowd" target="_blank" rel="noopener">ActiveSG Gym &amp; Pool Crowd</a>.
+      Unofficial tracker for personal use · Times in Asia/Singapore · Scraped every 15 min (07:00–22:00).
+    </p>
+  </footer>
+
+  <script src="static/app.js"></script>
+</body>
+</html>

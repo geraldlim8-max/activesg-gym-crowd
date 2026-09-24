@@ -1,0 +1,3 @@
+fastapi==0.119.1
+uvicorn[standard]==0.34.3
+# stdlib only for collector (urllib, sqlite3, datetime, zoneinfo)

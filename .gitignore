@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+data/occupancy.db
+data/occupancy.db-*
+reach-test/
+logs/
+*.lock
+.run/
+live.png
+.DS_Store
+dist/
